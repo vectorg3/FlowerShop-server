@@ -10,10 +10,8 @@ import cors from 'cors';
 
 mongoose.set('strictQuery', false);
 mongoose
-    // .connect(process.env.MONGODB_URI)
-    .connect(
-        'mongodb+srv://admin:392311@flowershop.x5zfckd.mongodb.net/FlowerShop?retryWrites=true&w=majority'
-    )
+    .connect(process.env.MONGODB_URI)
+    // .connect('mongodb+srv://admin:392311@flowershop.x5zfckd.mongodb.net/FlowerShop?retryWrites=true&w=majority')
     .then(() => {
         console.log('Database Connected');
     })
