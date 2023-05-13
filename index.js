@@ -10,8 +10,8 @@ import cors from 'cors';
 
 mongoose.set('strictQuery', false);
 mongoose
-    .connect(process.env.MONGODB_URI)
-    // .connect('mongodb+srv://admin:392311@flowershop.x5zfckd.mongodb.net/FlowerShop?retryWrites=true&w=majority')
+    // .connect(process.env.MONGODB_URI)
+    .connect('mongodb+srv://admin:392311@flowershop.x5zfckd.mongodb.net/FlowerShop?retryWrites=true&w=majority')
     .then(() => {
         console.log('Database Connected');
     })
@@ -30,6 +30,7 @@ app.get('/auth/me', checkAuth, UserController.getMe);
 // product routes
 app.post('/products', checkAuth, ProductController.addProduct);
 app.get('/products', ProductController.getAll);
+app.get('/products/:id', ProductController.getOne);
 // cart routes
 app.post('/cart', checkAuth, CartController.addToCart);
 app.delete('/cart/:id', checkAuth, CartController.removeFromCart);

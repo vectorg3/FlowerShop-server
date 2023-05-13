@@ -35,3 +35,14 @@ export const getAll = async (req, res) => {
         });
     }
 };
+export const getOne = async (req, res) => {
+    try {
+        const product = await ProductModel.findById(req.params.id);
+        res.json(product);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            msg: 'Не удалось получить товар',
+        });
+    }
+}
